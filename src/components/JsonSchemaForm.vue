@@ -9,7 +9,6 @@
         <option v-for="stype in schemaTypes" :key="stype">{{stype}}</option>
       </select>
       <br>
-      <p>properties</p>
       <br>
 
       <ul v-for="(property, nameOfProperty) in schema.properties" :key="property">
@@ -20,6 +19,10 @@
           :key="propertyTwo"
         >
           <li>{{nameOfPropertyTwo}}</li>
+          <input v-model="schema.properties[nameOfProperty][nameOfPropertyTwo]">
+          <!--<select v-if="check">
+            <option v-for="stype in schemaTypes" :key="stype">{{stype}}</option>
+          </select>-->
         </ul>
       </ul>
     </fieldset>
@@ -31,7 +34,9 @@ import Vue from 'vue';
 export default Vue.extend({
   data() {
     return {
-      schemaTypes: ['string', 'number', 'object', 'array', 'boolean', 'null']
+      schemaTypes: ['string', 'number', 'object', 'array', 'boolean', 'null'],
+      ifType: true,
+      check: ''
     };
   },
   props: {

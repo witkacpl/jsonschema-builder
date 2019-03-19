@@ -16,8 +16,7 @@ export default Vue.extend({
   components: {JsonDisplay, JsonSchemaForm},
   data() {
     return {schema: schema};
-  },
-  mounted() {}
+  }
 });
 </script>
 

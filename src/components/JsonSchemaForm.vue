@@ -4,9 +4,17 @@
       <legend>Formularz</legend>
 
       <input v-model="schema.title">
+      <br>
       <select v-model="schema.type">
         <option v-for="stype in schemaTypes" :key="stype">{{stype}}</option>
       </select>
+      <br>
+      <p>properties</p>
+      <br>
+
+      <ul v-for="(property, nameOfProperty) in schema.properties" :key="property">
+        <li>{{nameOfProperty}}</li>
+      </ul>
     </fieldset>
   </div>
 </template>

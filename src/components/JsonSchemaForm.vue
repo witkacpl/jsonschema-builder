@@ -14,6 +14,13 @@
 
       <ul v-for="(property, nameOfProperty) in schema.properties" :key="property">
         <li>{{nameOfProperty}}</li>
+
+        <ul
+          v-for="(propertyTwo, nameOfPropertyTwo) in schema.properties[nameOfProperty]"
+          :key="propertyTwo"
+        >
+          <li>{{nameOfPropertyTwo}}</li>
+        </ul>
       </ul>
     </fieldset>
   </div>

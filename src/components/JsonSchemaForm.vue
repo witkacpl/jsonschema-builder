@@ -1,7 +1,7 @@
 <template>
   <div>
     <fieldset>
-      <legend>To formularz</legend>
+      <legend>Czy dziala</legend>
       {{schema}}
     </fieldset>
   </div>

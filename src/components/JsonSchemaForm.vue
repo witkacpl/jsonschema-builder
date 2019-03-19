@@ -19,7 +19,11 @@
           :key="propertyTwo"
         >
           <li>{{nameOfPropertyTwo}}</li>
-          <input v-model="schema.properties[nameOfProperty][nameOfPropertyTwo]">
+          <input
+            v-model="schema.properties[nameOfProperty][nameOfPropertyTwo]"
+            v-if="schema.properties[nameOfProperty][nameOfPropertyTwo]!=='type'"
+          >
+          <p>{{schema.properties[nameOfProperty]}}</p>
           <!--<select v-if="check">
             <option v-for="stype in schemaTypes" :key="stype">{{stype}}</option>
           </select>-->
@@ -35,8 +39,7 @@ export default Vue.extend({
   data() {
     return {
       schemaTypes: ['string', 'number', 'object', 'array', 'boolean', 'null'],
-      ifType: true,
-      check: ''
+      ifType: ''
     };
   },
   props: {

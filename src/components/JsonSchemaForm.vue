@@ -29,6 +29,19 @@
           </select>-->
         </ul>
       </ul>
+      <ul>
+        <li v-for="(property, propertyName, index) in schema.properties" :key="index">
+          <div>
+            <label>property name:</label>
+            {{propertyName}}
+          </div>
+
+          <div>
+            <label>description:</label>
+            <input v-model="property.description">
+          </div>
+        </li>
+      </ul>
     </fieldset>
   </div>
 </template>

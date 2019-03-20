@@ -10,12 +10,11 @@ import Vue from 'vue';
 import JsonDisplay from './components/JsonDisplay.vue';
 import JsonSchemaForm from './components/JsonSchemaForm.vue';
 
-const schema = require('./assets/assets.json');
-
 export default Vue.extend({
   components: {JsonDisplay, JsonSchemaForm},
   data() {
-    return {schema: schema};
+    const schema = require('./assets/assets.json');
+    return {schema};
   }
 });
 </script>

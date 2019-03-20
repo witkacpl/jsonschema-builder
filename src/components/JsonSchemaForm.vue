@@ -11,7 +11,7 @@
       <br>
       <br>
 
-      <ul v-for="(property, nameOfProperty) in schema.properties" :key="property">
+      <ul v-for="(property, nameOfProperty, index) in schema.properties" :key="index">
         <li>{{nameOfProperty}}</li>
 
         <ul

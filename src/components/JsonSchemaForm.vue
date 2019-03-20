@@ -35,6 +35,10 @@
             <label>property name:</label>
             {{propertyName}}
           </div>
+          <div>
+            <label>property data:</label>
+            {{property}}
+          </div>
 
           <div>
             <label>description:</label>

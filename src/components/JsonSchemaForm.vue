@@ -10,7 +10,7 @@
       </select>
       <br>
       <br>
-
+      <!--
       <ul v-for="(property, nameOfProperty, index) in schema.properties" :key="index">
         <li>{{nameOfProperty}}</li>
 
@@ -24,11 +24,11 @@
             v-if="schema.properties[nameOfProperty][nameOfPropertyTwo]!=='type'"
           >
           <p>{{schema.properties[nameOfProperty]}}</p>
-          <!--<select v-if="check">
+          <select v-if="check">
             <option v-for="stype in schemaTypes" :key="stype">{{stype}}</option>
-          </select>-->
+          </select>
         </ul>
-      </ul>
+      </ul>-->
       <ul>
         <li v-for="(property, propertyName, index) in schema.properties" :key="index">
           <div>
@@ -39,7 +39,12 @@
             <label>property data:</label>
             {{property}}
           </div>
-
+          <div>
+            <label>property type:</label>
+            <select v-model="property.type">
+              <option v-for="stype in schemaTypes" :key="stype">{{stype}}</option>
+            </select>
+          </div>
           <div>
             <label>description:</label>
             <input v-model="property.description">

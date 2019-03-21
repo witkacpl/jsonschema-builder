@@ -16,6 +16,7 @@
             <label>name:</label>
             {{propertyName}}
           </div>
+          <button @click="deleteProperty(propertyName)">delete</button>
           <div>
             <label>data:</label>
             {{property}}
@@ -32,6 +33,7 @@
           </div>
         </li>
         <div>
+          <br>
           <input v-model="newProperty">
           <button @click="addProperty()">add Property</button>
         </div>
@@ -56,6 +58,9 @@ export default Vue.extend({
     addProperty() {
       this.schema.properties[this.newProperty] = {};
       return (this.newProperty = '');
+    },
+    deleteProperty(e) {
+      this.$delete(this.schema.properties, e);
     }
   }
 });

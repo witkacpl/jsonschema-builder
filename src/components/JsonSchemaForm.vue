@@ -10,37 +10,18 @@
       </select>
       <br>
       <br>
-      <!--
-      <ul v-for="(property, nameOfProperty, index) in schema.properties" :key="index">
-        <li>{{nameOfProperty}}</li>
-
-        <ul
-          v-for="(propertyTwo, nameOfPropertyTwo) in schema.properties[nameOfProperty]"
-          :key="propertyTwo"
-        >
-          <li>{{nameOfPropertyTwo}}</li>
-          <input
-            v-model="schema.properties[nameOfProperty][nameOfPropertyTwo]"
-            v-if="schema.properties[nameOfProperty][nameOfPropertyTwo]!=='type'"
-          >
-          <p>{{schema.properties[nameOfProperty]}}</p>
-          <select v-if="check">
-            <option v-for="stype in schemaTypes" :key="stype">{{stype}}</option>
-          </select>
-        </ul>
-      </ul>-->
       <ul>
         <li v-for="(property, propertyName, index) in schema.properties" :key="index">
           <div>
-            <label>property name:</label>
+            <label>name:</label>
             {{propertyName}}
           </div>
           <div>
-            <label>property data:</label>
+            <label>data:</label>
             {{property}}
           </div>
           <div>
-            <label>property type:</label>
+            <label>type:</label>
             <select v-model="property.type">
               <option v-for="stype in schemaTypes" :key="stype">{{stype}}</option>
             </select>
@@ -50,6 +31,10 @@
             <input v-model="property.description">
           </div>
         </li>
+        <div>
+          <input v-model="newProperty">
+          <button @click="addProperty()">add Property</button>
+        </div>
       </ul>
     </fieldset>
   </div>
@@ -61,12 +46,17 @@ export default Vue.extend({
   data() {
     return {
       schemaTypes: ['string', 'number', 'object', 'array', 'boolean', 'null'],
-      ifType: ''
+      newProperty: ''
     };
   },
   props: {
     schema: Object
   },
-  computed: {}
+  methods: {
+    addProperty() {
+      this.schema.properties[this.newProperty] = {};
+      return (this.newProperty = '');
+    }
+  }
 });
 </script>
